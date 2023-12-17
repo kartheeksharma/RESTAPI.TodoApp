@@ -1,0 +1,53 @@
+//1.List of todo's
+
+GET http://localhost:3003/todos/?status=TO%20DO
+//states is "TO DO"
+###
+GET http://localhost:3003/todos/?priority=HIGH
+//priority is "HIGH"
+###
+GET http://localhost:3003/todos/?priority=MEDIUM&status=DONE
+//priority is "MEDIUM" status is "DONE"
+
+###
+//2.specific todo based on todoId 
+GET  http://localhost:3003/todos/2/
+
+###
+//3.Create todo in todo table //space b/w content and body
+POST http://localhost:3003/todos/
+Content-Type: application/json
+
+{
+  "id": 10,
+  "todo": "Finalize event theme",
+  "priority": "LOW",
+  "status": "TO DO"
+}
+
+//4.Update details of specific todo
+###
+PUT http://localhost:3003/todos/1
+Content-Type: application/json
+
+{ 
+    "status": "DONE" 
+    }
+
+###
+PUT http://localhost:3003/todos/2
+Content-Type: application/json
+
+{ 
+    "priority": "HIGH" 
+    }
+
+###
+PUT http://localhost:3003/todos/2
+Content-Type: application/json
+
+{ "todo": "Some task" }
+
+//5.Delete todo from todo table 
+DELETE http://localhost:3003/todos/4/
+
